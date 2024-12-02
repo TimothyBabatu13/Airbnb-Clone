@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { EarthIcon, NavIcon, UserIcon } from "./Icons"
+import { EarthIcon } from "./Icons"
 import { DropdownMenuDemo } from "./User"
 
 
