@@ -22,9 +22,9 @@ import Link from "next/link"
             <UserIcon className="h-8 w-8" />
           </span>
         </button>
-        </DropdownMenuTrigger>
+        </DropdownMenuTrigger >
         <DropdownMenuContent className="w-56">
-          <DropdownMenuGroup>
+          <DropdownMenuGroup className="">
             
             <DropdownMenuItem asChild>
              <Link href={'/sign-up'}>Sign up</Link>

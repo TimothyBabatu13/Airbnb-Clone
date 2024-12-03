@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import Image from "next/image"
+import { LeftIcon, RightIcon } from "./Icons"
 
 /* 
 npx shadcn@latest add carousel
@@ -18,7 +19,7 @@ const IconWithText = ({ active, name, src } : {
     name: string
 }) => {
     return (
-        <div  className={`flex flex-col items-center w-fit underline py-1 ${active ? 'cursor-pointer' : ''}`}>
+        <div  className={`flex flex-col items-center w-fit  ${active && 'border-b-black border-b-2'} py-1 mt-3 mb-2.5 ${!active ? 'cursor-pointer hover:border-b-2' : 'cursor-auto'}`}>
             <Image 
                 src={src}
                 height={24}
@@ -294,15 +295,19 @@ const NavIcon = () => {
         <CarouselItem key={index} className={`basis-auto ${index !== navData.length -1 && 'mr-8'}`}>
             <IconWithText 
                     
-                    active
+                    active={index === 0 ? true : false}
                     src={_.imgPath}
                     name={_.text}
                 />
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-5" />
-      <CarouselNext className="right-5"/>
+      <CarouselPrevious className="left-0"> 
+        <LeftIcon />
+      </CarouselPrevious>
+      <CarouselNext className="right-0"> 
+        <RightIcon />
+      </CarouselNext>
     </Carousel>
         {/* {
             navData.map((navDatum, id) => (

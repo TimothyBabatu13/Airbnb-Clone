@@ -12,6 +12,7 @@ import {
 import { CopyIcon, EmailIcon, FacebookIcon, MessageIcon, MessengerIcon, MoreOptionsIcon, ShareIcon, TwitterIcon, WhatsAppIcon } from "./Icons";
 import Image from "next/image";
 import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 
 
 const ActionButton = ({ children, action } : {
@@ -77,8 +78,9 @@ const ActionButtons = ({ id } : {
     )
 }
 
-const ShareButton = ({ id } : {
-    id: string
+const ShareButton = ({ id, className } : {
+    id: string,
+    className?: string
 }) => {
     const handleClick = async () => {
         console.log('Share button is clicked')
@@ -90,7 +92,7 @@ const ShareButton = ({ id } : {
         <button
             onClick={handleClick}
             style={{"background":"linear-gradient(0deg,rgba(255,255,255,0.55),rgba(255,255,255,0.55)),linear-gradient(0deg,rgba(255,255,255,0.54) 0%,rgba(255,255,255,0.48) 60%,rgba(255,255,255,0.76) 100%)"}} 
-            className="absolute right-3 top-5 h-8 w-8 grid place-items-center rounded-full hover:!bg-[#FFFFFF]">
+            className={cn("absolute right-3 top-5 h-8 w-8 grid place-items-center rounded-full hover:!bg-[#FFFFFF] "+  className)}>
                 <ShareIcon />
         </button>
       </DialogTrigger>
