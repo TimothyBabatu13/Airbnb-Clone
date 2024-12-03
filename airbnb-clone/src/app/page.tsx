@@ -3,6 +3,7 @@ import NavIcon from "./components/NavIcon";
 import LodgeCard from "./components/LodgeCard";
 import PastExoeriences from "./components/PastExoeriences";
 import LodgeCardWrapper from "./components/LodgeCardWrapper";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <LodgeCard id="6" background={["/first_1.jpeg", "/first_2.jpeg", "/first_3.jpeg", "/first_4.jpeg"]}/>
      </LodgeCardWrapper>
      <PastExoeriences />
+     <Footer />
     </div>
   );
 }
