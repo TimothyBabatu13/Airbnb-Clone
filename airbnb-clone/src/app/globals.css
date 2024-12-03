@@ -70,3 +70,21 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@media only screen and (min-width: 550px) {
+  .lodge_card_wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  .lodge_card_wrapper {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media only screen and (min-width: 1128px) {
+  .lodge_card_wrapper {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

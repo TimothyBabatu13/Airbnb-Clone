@@ -286,12 +286,12 @@ const NavIcon = () => {
         },
     ]
   return (
-    <div className="flex items-center gap-8 overflow-x-scroll">
+    <div className="flex items-center">
         {/* <CarouselSpacing /> */}
-        <Carousel className="w-full max-w-sm">
-      <CarouselContent className="-ml-1">
+        <Carousel className="w-full">
+      <CarouselContent className="ml-10">
         {navData.map((_, index) => (
-          <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
+        <CarouselItem key={index} className={`basis-auto ${index !== navData.length -1 && 'mr-8'}`}>
             <IconWithText 
                     
                     active
@@ -301,10 +301,10 @@ const NavIcon = () => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="left-5" />
+      <CarouselNext className="right-5"/>
     </Carousel>
-        {
+        {/* {
             navData.map((navDatum, id) => (
                 <IconWithText 
                     key={id}
@@ -313,7 +313,7 @@ const NavIcon = () => {
                     name={navDatum.text}
                 />
             ))
-        }
+        } */}
     </div>
   )
 }

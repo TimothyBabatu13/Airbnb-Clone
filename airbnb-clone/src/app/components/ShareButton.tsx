@@ -34,7 +34,7 @@ const ActionButtons = ({ id } : {
 
     const { toast } = useToast()
 
-    const copyLink = async () => {
+    const copyLink = () => {
         navigator.clipboard.writeText(id)
         toast({description: 'Link copied'})
     }

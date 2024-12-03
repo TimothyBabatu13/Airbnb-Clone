@@ -3,6 +3,14 @@ import Image from "next/image"
 import ShareButton from "./ShareButton"
 import { LeftIcon, RightIcon } from "./Icons"
 
+interface LodgeCardType {
+    id: string,
+    author: string,
+    name: string,
+    isOutOfStock: boolean
+    price: string,
+    images: string[]
+}
 
 const BackgroundImage = ({ background } : {
     background: string,
@@ -14,19 +22,21 @@ const BackgroundImage = ({ background } : {
                 height={323.312}
                 width={340.333}
                 alt=""
-                className="rounded-xl mb-3 h-full"
+                className="rounded-xl mb-3 h-full w-full"
             />
     )
 }
 
-const LodgeCard = ({ background, id } : {
+const LodgeCard = ({ background, id, data } : {
     background: string[],
-    id: string
+    id: string,
+    data?: LodgeCardType
 
 }) => {
+    
   return (
     <div>
-        <Carousel className="w-full max-w-xs">
+        <Carousel className="w-full mb-3">
             <CarouselContent className="h-[298.22px]">
                 {
                     background.map((bg, index) => (
@@ -45,9 +55,9 @@ const LodgeCard = ({ background, id } : {
             <ShareButton id={id} /> 
         </Carousel>
         <div  className="text-[15px]">
-            <h1>Train for Gladiator || glory</h1>
-            <h2>Hosted by Lucius</h2>
-            <h3 >$0 per guest</h3>
+            <h1 className="font-medium text-[#222222]">Train for Gladiator || glory</h1>
+            <h2 className="text-[#6A6A6A]">Hosted by Lucius</h2>
+            <h3 className="font-medium">$0 per guest</h3>
         </div>
     </div>
 
