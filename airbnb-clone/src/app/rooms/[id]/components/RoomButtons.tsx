@@ -23,11 +23,10 @@ export const RoomHeaderButton = () => {
     }
     return(
         <div className="flex items-center">
-            <ButtonWithIcon>
-                {/* <ShareIcon /> */}
-                <ShareButton className="relative top-0 mr-0" id="0"/>
-                <span className="underline">Share</span>
-            </ButtonWithIcon>
+            <ShareButton className={cn("relative top-0 right-10 mr-0 flex items-center !bg-transparent text-black !shadow-none !hover:bg-[#F7F7F7] ")} id="0">
+                <ShareIcon /> 
+                <span className="underline ml-2"> Share</span> 
+            </ShareButton>
             <ButtonWithIcon>
                 <LoveIcon />
                 <span className="underline">Save</span>

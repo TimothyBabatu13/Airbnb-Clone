@@ -78,9 +78,17 @@ const ActionButtons = ({ id } : {
     )
 }
 
-const ShareButton = ({ id, className } : {
+// export const MyCustomDialog = () => {
+//     return(
+//         <Dialog>
+
+//         </Dialog>
+//     )
+// }
+const ShareButton = ({ id, className, children } : {
     id: string,
-    className?: string
+    className?: string,
+    children?: React.ReactNode,
 }) => {
     const handleClick = async () => {
         console.log('Share button is clicked')
@@ -93,7 +101,7 @@ const ShareButton = ({ id, className } : {
             onClick={handleClick}
             style={{"background":"linear-gradient(0deg,rgba(255,255,255,0.55),rgba(255,255,255,0.55)),linear-gradient(0deg,rgba(255,255,255,0.54) 0%,rgba(255,255,255,0.48) 60%,rgba(255,255,255,0.76) 100%)"}} 
             className={cn("absolute right-3 top-5 h-8 w-8 grid place-items-center rounded-full hover:!bg-[#FFFFFF] "+  className)}>
-                <ShareIcon />
+                {children ? children : <ShareIcon />}
         </button>
       </DialogTrigger>
       <DialogContent className="w-[568px]">

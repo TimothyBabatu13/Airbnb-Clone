@@ -1,14 +1,15 @@
 import Header from "@/app/components/Header";
 import { RoomHeaderButton } from "./components/RoomButtons";
 import ImageExhibition from "./components/ImageExhibition";
+import Infomation from "./components/Infomation";
 
 const page = async ({params}: {
-    params: {
+    params: Promise<{
         id: string
-    }
+    }>
 }) => {
     const roomID = (await params).id;
-
+    console.log(roomID)
   return (
     <div>
         <Header />
@@ -17,6 +18,7 @@ const page = async ({params}: {
             <RoomHeaderButton />
         </div>
         <ImageExhibition />
+        <Infomation />
     </div>
   )
 }

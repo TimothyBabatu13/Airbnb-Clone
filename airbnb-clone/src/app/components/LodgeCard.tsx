@@ -33,6 +33,7 @@ const LodgeCard = ({ background, id, data } : {
     data?: LodgeCardType
 
 }) => {
+    console.log(data)
     
   return (
     <div>
