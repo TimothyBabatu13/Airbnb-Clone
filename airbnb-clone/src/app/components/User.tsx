@@ -23,14 +23,14 @@ import Link from "next/link"
           </span>
         </button>
         </DropdownMenuTrigger >
-        <DropdownMenuContent className="w-56">
+        <DropdownMenuContent className="w-56 mr-16">
           <DropdownMenuGroup className="">
             
             <DropdownMenuItem asChild>
-             <Link href={'/sign-up'}>Sign up</Link>
+             <Link href={'?signup=true'}>Sign up</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-             <Link href={'/sign-in'}>Log in</Link>
+             <Link href={'?signup=true'}>Log in</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
