@@ -73,6 +73,7 @@ body {
 .small_image img:hover div {
   opacity: 1;
 }
+
 @media only screen and (min-width: 550px) {
   .lodge_card_wrapper {
     grid-template-columns: repeat(2, minmax(0, 1fr));

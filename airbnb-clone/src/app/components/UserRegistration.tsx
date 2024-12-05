@@ -38,4 +38,3 @@ const UserRegistration = () => {
 export default UserRegistration
 
 
-// I have a nextJs project. I am updating url with state and getting the state with useSearchParams hook. What i want is that i am changing params in url from this path '/' to '/?search=true'. I want my useEffect to run if path of url changes from these two paths i provided. Please note that it's only these two paths that i am working with
