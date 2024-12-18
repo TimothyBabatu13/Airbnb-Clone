@@ -5,6 +5,7 @@ import RoomFeatures from "./RoomFeatures"
 import RoomDescription from "./RoomDescription"
 import SleepingRoomPreview from "./SleepingRoomPreview"
 import PlaceOffer from "./PlaceOffer"
+import CheckInDate from "./CheckInDate"
 
 const Infomation = () => {
     // console.log(CardDescription, CardHeader, CardTitle)
@@ -34,6 +35,7 @@ const Infomation = () => {
                 <RoomDescription />
                 <SleepingRoomPreview />
                 <PlaceOffer />
+                <CheckInDate />
             </div>
             <div className="flex-1">
                 <Card className="w-[350px] shadow p-6">
