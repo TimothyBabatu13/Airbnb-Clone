@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import Image from "next/image"
+import RoomFeatures from "./RoomFeatures"
+import RoomDescription from "./RoomDescription"
+import SleepingRoomPreview from "./SleepingRoomPreview"
 
 const Infomation = () => {
+    // console.log(CardDescription, CardHeader, CardTitle)
   return (
     <div>
         <div className="flex py-8 justify-between">
@@ -25,6 +29,9 @@ const Infomation = () => {
                         <h4 className="text-[#6A6A6A] text-sm">Gladiator</h4>
                     </div>
                 </div>
+                <RoomFeatures />
+                <RoomDescription />
+                <SleepingRoomPreview />
             </div>
             <div className="flex-1">
                 <Card className="w-[350px] shadow p-6">

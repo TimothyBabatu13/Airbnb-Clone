@@ -26,7 +26,7 @@ const SmallImage = ({ myId, src } : {
 }
 const ImageExhibition = () => {
   return (
-    <div className="pt-6 flex gap-2 relative">
+    <div id="imageExhibition" className="pt-6 flex gap-2 relative">
             <Image 
                 src={'/first_1.jpeg'}
                 height={40}

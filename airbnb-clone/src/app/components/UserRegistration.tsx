@@ -3,12 +3,12 @@
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
 import Link from "next/link";
-import {  useSearchParams, useRouter } from "next/navigation";
+import {  useSearchParams, /*useRouter*/ } from "next/navigation";
 import RegistrationForm from "./RegistrationForm";
 
 const UserRegistration = () => {
 
-  const router = useRouter();
+  // const router = useRouter();
   const searchParams = useSearchParams()
   
   const result = searchParams.get('signup') === 'true' ? true : false

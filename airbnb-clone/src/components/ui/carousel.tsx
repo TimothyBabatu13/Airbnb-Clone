@@ -66,7 +66,7 @@ const Carousel = React.forwardRef<
       plugins
     )
     const [canScrollPrev, setCanScrollPrev] = React.useState(false)
-    const [canScrollNext, setCanScrollNext] = React.useState(false)
+    const [canScrollNext, setCanScrollNext] = React.useState(true)
 
     const onSelect = React.useCallback((api: CarouselApi) => {
       if (!api) {
@@ -209,7 +209,7 @@ const CarouselPrevious = React.forwardRef<
         "absolute  h-8 w-8 rounded-full",
         orientation === "horizontal"
           ? "-left-12 top-1/2 -translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90", !canScrollPrev && 'hidden',
+          : "-top-12 left-1/2 -translate-x-1/2 rotate-90 ", !canScrollPrev && 'hidden ',
         className
       )}
       disabled={!canScrollPrev}
@@ -238,7 +238,7 @@ const CarouselNext = React.forwardRef<
         "absolute h-8 w-8 rounded-full",
         orientation === "horizontal"
           ? "-right-12 top-1/2 -translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90", !canScrollNext && 'hidden',
+          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90 ", !canScrollNext && 'hidden ',
         className
       )}
       disabled={!canScrollNext}

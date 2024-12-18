@@ -2,6 +2,7 @@ import Header from "@/app/components/Header";
 import { RoomHeaderButton } from "./components/RoomButtons";
 import ImageExhibition from "./components/ImageExhibition";
 import Infomation from "./components/Infomation";
+import ScrollOb from "./components/ScrollOb";
 
 const page = async ({params}: {
     params: Promise<{
@@ -9,7 +10,7 @@ const page = async ({params}: {
     }>
 }) => {
     const roomID = (await params).id;
-    console.log(roomID)
+    // console.log(roomID)
   return (
     <div>
         <Header />
@@ -19,6 +20,7 @@ const page = async ({params}: {
         </div>
         <ImageExhibition />
         <Infomation />
+        <ScrollOb />
     </div>
   )
 }

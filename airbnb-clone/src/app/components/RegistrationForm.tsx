@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { MailIcon } from 'lucide-react';
-import { ChangeEvent, ForwardRefExoticComponent, RefAttributes, useEffect, useRef, useState } from 'react';
+import { /*(ChangeEvent,*/ useEffect, useRef, useState } from 'react';
 import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
 import { AppleIcon, FacebookIcon2, GoogleIcon } from './Icons';
@@ -38,7 +38,7 @@ const AppleButton = () => {
         const fetchData = async () => {
             fetch('http://localhost:3000/api/checkos')
             .then(res => res.json())
-            .then(res => setDisabled(true))
+            .then(() => setDisabled(true))
             .catch(err => console.log(err))
         }
         fetchData()
@@ -98,6 +98,9 @@ const RegistrationForm = () => {
     const [location, setLocation] = useState<string | null>(null);
     const labelElemet = useRef<HTMLLabelElement | null>(null);
  
+    console.log(phoneNumber)
+    // console.log(setPhoneNumber)
+    console.log(labelElemet)
     useEffect(() => {
         const fetchCountryCode = async () : Promise<string> => {
             const api = await fetch('http://ip-api.com/json');
@@ -111,27 +114,27 @@ const RegistrationForm = () => {
         .catch(err => console.log(err))
     } , [])
 
-    const handleFocus = () => {
-        labelElemet.current?.classList.add('-top-4', 'text-sm', 'font-lighter')
-    }
+    // const handleFocus = () => {
+    //     labelElemet.current?.classList.add('-top-4', 'text-sm', 'font-lighter')
+    // }
 
-    const handleBlur = () => {
-        labelElemet.current?.classList.remove('-top-4', 'text-sm', 'font-lighter')
-    }
+    // const handleBlur = () => {
+    //     labelElemet.current?.classList.remove('-top-4', 'text-sm', 'font-lighter')
+    // }
 
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
+    // const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    //     const value = e.target.value;
 
-        const checkLastWord = (): boolean => {
-            const arr = value.split('');
-            const lastWord = arr[arr.length -1];
-            return Number.isNaN(Number(lastWord))
-        }
+    //     const checkLastWord = (): boolean => {
+    //         const arr = value.split('');
+    //         const lastWord = arr[arr.length -1];
+    //         return Number.isNaN(Number(lastWord))
+    //     }
 
-        if (checkLastWord()) return;
-        setPhoneNumber(value)
-    }
+    //     if (checkLastWord()) return;
+    //     setPhoneNumber(value)
+    // }
 
   return (
     <div>
