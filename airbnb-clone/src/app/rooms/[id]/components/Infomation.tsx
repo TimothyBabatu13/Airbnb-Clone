@@ -4,6 +4,7 @@ import Image from "next/image"
 import RoomFeatures from "./RoomFeatures"
 import RoomDescription from "./RoomDescription"
 import SleepingRoomPreview from "./SleepingRoomPreview"
+import PlaceOffer from "./PlaceOffer"
 
 const Infomation = () => {
     // console.log(CardDescription, CardHeader, CardTitle)
@@ -32,6 +33,7 @@ const Infomation = () => {
                 <RoomFeatures />
                 <RoomDescription />
                 <SleepingRoomPreview />
+                <PlaceOffer />
             </div>
             <div className="flex-1">
                 <Card className="w-[350px] shadow p-6">

@@ -31,8 +31,8 @@ const SleepingRoomPreview = () => {
     const divisionValue = (num : number) => num / 2;
   return (
     <div className="border-b py-12">
-        <div className="flex justify-between">
-            <h4>Where you'll sleep</h4>
+        <div className="flex justify-between mb-6">
+            <h4 className="text-[22px] font-medium">Where you'll sleep</h4>
             <div>
                <span> {num}/{divisionValue(data.length)}</span>
             </div>
@@ -40,7 +40,7 @@ const SleepingRoomPreview = () => {
         <Carousel className="w-full">
       <CarouselContent className="">
         {data.map((_, index) => (
-        <CarouselItem key={index} className={`basis-auto`}>
+        <CarouselItem key={index} className={`basis-1/2 flex flex-col`}>
             <Image 
                 width={267}
                 height={178}
@@ -49,6 +49,8 @@ const SleepingRoomPreview = () => {
                 className="!h-full !w-full rounded-[8px] flex-1"
                 objectFit="cover"
             />
+            <h5 className="text-black text-base font-medium mt-4">{_.title}</h5>
+            <h6 className="mt-1 text-sm font-normal">{_.description}</h6>
           </CarouselItem>
         ))}
       </CarouselContent>
