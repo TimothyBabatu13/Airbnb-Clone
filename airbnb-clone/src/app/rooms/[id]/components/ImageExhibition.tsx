@@ -1,7 +1,10 @@
-'use client'
+// 'use client'
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { AllPhotosButton } from "./RoomButtons"
+import { fetchData } from "@/lib/fetchData"
+import { dataToSendType } from "@/app/api/getRoom/route"
+
 
 
 
@@ -24,11 +27,23 @@ const SmallImage = ({ myId, src } : {
             </div>
     )
 }
-const ImageExhibition = () => {
+
+
+const ImageExhibition = async ({ id } : {
+    id: string
+}) => {
+    const data : dataToSendType = await fetchData('http://localhost:3000/api/getRoom', {
+        method: 'POST',
+        body: JSON.stringify(id)
+    })
+
+    const { images }= data;
+    const [img1, ...imgs] = images
+    
   return (
     <div id="imageExhibition" className="pt-6 flex gap-2 relative">
             <Image 
-                src={'/first_1.jpeg'}
+                src={img1}
                 height={40}
                 width={342.677}
                 className="bg-cover rounded-l-2xl flex-1 w-full hover:bg-black"
@@ -36,7 +51,7 @@ const ImageExhibition = () => {
                 role="button"
             />
         <div className="grid grid-cols-2 gap-2 flex-1">
-            {Array.from(['/first_2.jpeg','/first_3.jpeg','/first_4.jpeg','/first_1.jpeg']).map((_, id) => (
+            {Array.from(imgs).map((_, id) => (
                 <SmallImage src={_} myId={id} key={id}/>
             ))}
         </div>

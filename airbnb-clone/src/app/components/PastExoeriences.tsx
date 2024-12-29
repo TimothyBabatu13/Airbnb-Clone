@@ -1,20 +1,29 @@
-import LodgeCard from "./LodgeCard"
+import { fetchData } from "@/lib/fetchData"
+import LodgeCard, { LodgeCardType } from "./LodgeCard"
 import LodgeCardWrapper from "./LodgeCardWrapper"
+import { Suspense } from "react";
 
-const PastExoeriences = () => {
+const LodgeCardData = async () => {
+  const data : LodgeCardType[] = await fetchData('http://localhost:3000/api/getAllRooms'); 
+  console.log('running heyyy')
+  return (
+    <LodgeCardWrapper>
+          {
+            data?.map(lodgeCardData => (
+              <LodgeCard key={lodgeCardData.id} data={lodgeCardData} />  
+            ))
+          }
+        </LodgeCardWrapper>
+  )
+}
+
+const PastExoeriences = async () => {
   return (
     <div>
         <h2 className="mt-[52px] mb-6 text-[32px]">Past experiences</h2>
-        <LodgeCardWrapper>
-            <LodgeCard id="1" background={["/first_1.jpeg", "/first_2.jpeg", "/first_3.jpeg", "/first_4.jpeg"]}/>
-            <LodgeCard id="6" background={["/first_1.jpeg", "/first_2.jpeg", "/first_3.jpeg", "/first_4.jpeg"]}/>
-            <LodgeCard id="1" background={["/first_1.jpeg", "/first_2.jpeg", "/first_3.jpeg", "/first_4.jpeg"]}/>
-            <LodgeCard id="6" background={["/first_1.jpeg", "/first_2.jpeg", "/first_3.jpeg", "/first_4.jpeg"]}/>
-            <LodgeCard id="1" background={["/first_1.jpeg", "/first_2.jpeg", "/first_3.jpeg", "/first_4.jpeg"]}/>
-            <LodgeCard id="6" background={["/first_1.jpeg", "/first_2.jpeg", "/first_3.jpeg", "/first_4.jpeg"]}/>
-            <LodgeCard id="1" background={["/first_1.jpeg", "/first_2.jpeg", "/first_3.jpeg", "/first_4.jpeg"]}/>
-            <LodgeCard id="6" background={["/first_1.jpeg", "/first_2.jpeg", "/first_3.jpeg", "/first_4.jpeg"]}/>
-        </LodgeCardWrapper>
+        <Suspense fallback={<h1>Loading data for Past Experiences</h1>}>
+        <LodgeCardData />
+        </Suspense>
     </div>
   )
 }

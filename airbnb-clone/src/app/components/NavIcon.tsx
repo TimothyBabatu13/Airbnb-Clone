@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/carousel"
 import Image from "next/image"
 import { LeftIcon, RightIcon } from "./Icons"
+import Link from "next/link"
 
 /* 
 npx shadcn@latest add carousel
@@ -18,8 +19,14 @@ const IconWithText = ({ active, name, src } : {
     src: string,
     name: string
 }) => {
+
+    const generateRandomID = () => {
+        return crypto.randomUUID()
+    }
+    const h = generateRandomID();
+
     return (
-        <div  className={`flex flex-col items-center w-fit  ${active && 'border-b-black border-b-2'} py-1 mt-3 mb-2.5 ${!active ? 'cursor-pointer hover:border-b-2' : 'cursor-auto'}`}>
+        <Link href={`?type=${h}`}  className={`flex flex-col items-center w-fit  ${active && 'border-b-black border-b-2'} py-1 mt-3 mb-2.5 ${!active ? 'cursor-pointer hover:border-b-2' : 'cursor-auto'}`}>
             <Image 
                 src={src}
                 height={24}
@@ -27,7 +34,7 @@ const IconWithText = ({ active, name, src } : {
                 alt={name+ ' icon'}
             />
             <span className="">{name}</span>
-        </div>
+        </Link>
     )
 }
 

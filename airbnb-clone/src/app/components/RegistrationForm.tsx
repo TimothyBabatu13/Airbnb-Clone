@@ -98,9 +98,9 @@ const RegistrationForm = () => {
     const [location, setLocation] = useState<string | null>(null);
     const labelElemet = useRef<HTMLLabelElement | null>(null);
  
-    console.log(phoneNumber)
+    // console.log(phoneNumber)
     // console.log(setPhoneNumber)
-    console.log(labelElemet)
+    // console.log(labelElemet)
     useEffect(() => {
         const fetchCountryCode = async () : Promise<string> => {
             const api = await fetch('http://ip-api.com/json');

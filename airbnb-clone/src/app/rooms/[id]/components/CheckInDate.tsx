@@ -1,7 +1,7 @@
 'use client'
 
 import { Calendar } from "@/components/ui/calendar"
-import { useState } from "react"
+import { use, useEffect, useState } from "react"
 
 export function CalendarDemo({ ...props }) {
   return (
@@ -14,7 +14,9 @@ export function CalendarDemo({ ...props }) {
 }
 
 
+
 const CheckInDate = () => {
+ 
     const newDate = new Date()
     const [date, setDate] = useState<Date | undefined>(newDate)
    
@@ -87,3 +89,5 @@ const CheckInDate = () => {
 }
 
 export default CheckInDate
+
+

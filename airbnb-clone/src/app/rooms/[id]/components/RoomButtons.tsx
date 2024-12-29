@@ -15,7 +15,9 @@ const ButtonWithIcon = ({ children, className} : {
         </Button>
     )
 }
-export const RoomHeaderButton = () => {
+export const RoomHeaderButton = ({ id } : {
+    id: string
+}) => {
     {
         /*
             Fix the share button here
@@ -23,7 +25,7 @@ export const RoomHeaderButton = () => {
     }
     return(
         <div className="flex items-center">
-            <ShareButton className={cn("relative top-0 right-10 mr-0 flex items-center !bg-transparent text-black !shadow-none !hover:bg-[#F7F7F7] ")} id="0">
+            <ShareButton className={cn("relative top-0 right-10 mr-0 flex items-center !bg-transparent text-black !shadow-none !hover:bg-[#F7F7F7] ")} id={id}>
                 <ShareIcon /> 
                 <span className="underline ml-2"> Share</span> 
             </ShareButton>

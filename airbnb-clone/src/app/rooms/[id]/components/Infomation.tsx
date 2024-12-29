@@ -6,33 +6,78 @@ import RoomDescription from "./RoomDescription"
 import SleepingRoomPreview from "./SleepingRoomPreview"
 import PlaceOffer from "./PlaceOffer"
 import CheckInDate from "./CheckInDate"
+import { fetchData } from "@/lib/fetchData"
+import { dataToSendType } from "@/app/api/getRoom/route"
+import { Suspense } from "react"
 
-const Infomation = () => {
+const NameOfCity = async ({ id } : {
+    id: string
+}) => {
+
+    const data : dataToSendType = await fetchData('http://localhost:3000/api/getRoom',{
+        method: 'POST',
+        body: JSON.stringify(id)
+    });
+
+    const location = data.location
+
+    return(
+        <h3 className="text-[22px] font-medium">{location}</h3>
+    )
+}
+const UserInfo = async ({ id } : {
+    id: string
+}) => {
+    const data : dataToSendType = await fetchData('http://localhost:3000/api/getRoom',{
+        method: 'POST',
+        body: JSON.stringify(id)
+    });
+
+    const { postedBy : { image, name, nickname } } = data;
+    return(
+        <div className="py-6 border-y flex items-center">
+            <Image 
+                src={image}
+                height={40}
+                width={40}
+                alt={`${name} image`}
+                className="rounded-full h-10 w-10 mr-3"
+                role="button"
+            />
+            <div>
+                <h3>Hosted by {name}</h3>
+                <h4 className="text-[#6A6A6A] text-sm">{nickname}</h4>
+            </div>
+        </div>
+    )
+}
+const Infomation = ({ id }: {
+    id: string
+}) => {
     // console.log(CardDescription, CardHeader, CardTitle)
   return (
     <div>
         <div className="flex py-8 justify-between">
             <div className=" flex-1">
                 <div className="">
-                    <h3 className="text-[22px] font-medium">Rome, Italy</h3>
+                    <Suspense fallback={<h1>Loading data for city name</h1>}>
+                        <NameOfCity 
+                            id={id} 
+                        />
+                    </Suspense>
                     <h4 className="mt-1 text-base font-normal">Evening Experience</h4>
                 </div>
-                <div className="py-6 border-y flex items-center">
-                    <Image 
-                        src={'/gladiator.jpeg'}
-                        height={40}
-                        width={40}
-                        alt=""
-                        className="rounded-full h-10 w-10 mr-3"
-                        role="button"
+                <Suspense fallback={<h1>Loading user info</h1>}>
+                    <UserInfo 
+                        id={id}
                     />
-                    <div>
-                        <h3>Hosted by Lucius</h3>
-                        <h4 className="text-[#6A6A6A] text-sm">Gladiator</h4>
-                    </div>
-                </div>
+                </Suspense>
                 <RoomFeatures />
-                <RoomDescription />
+                <Suspense fallback={<h1>Loading room description data</h1>}>
+                    <RoomDescription 
+                        id={id}
+                    />
+                </Suspense>
                 <SleepingRoomPreview />
                 <PlaceOffer />
                 <CheckInDate />
