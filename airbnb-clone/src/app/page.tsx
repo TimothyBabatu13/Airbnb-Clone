@@ -6,6 +6,7 @@ import LodgeCardWrapper from "./components/LodgeCardWrapper";
 import Footer from "./components/Footer";
 import { Suspense } from "react";
 import { fetchData } from "@/lib/fetchData";
+import Skeleton, { LodgeCardSkeleton } from "@/components/ui/skeleton";
 
 async function HeaderCard() {
 
@@ -24,6 +25,8 @@ async function HeaderCard() {
 }
 
 
+
+
 export default function Home() {
 
   return (
@@ -31,7 +34,7 @@ export default function Home() {
      <Header />
      <NavIcon />
      <LodgeCardWrapper>
-      <Suspense fallback={<h1>Loading data for header card</h1>}>
+      <Suspense fallback={Array.from(['',''].map((item, id) => <LodgeCardSkeleton key={id}/>))}>
         <HeaderCard />
       </Suspense>
      </LodgeCardWrapper>
