@@ -5,9 +5,6 @@ import { AllPhotosButton } from "./RoomButtons"
 import { fetchData } from "@/lib/fetchData"
 import { dataToSendType } from "@/app/api/getRoom/route"
 
-
-
-
 const SmallImage = ({ myId, src } : {
     myId: number,
     src: string

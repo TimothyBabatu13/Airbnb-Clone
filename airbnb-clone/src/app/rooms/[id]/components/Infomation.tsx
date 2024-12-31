@@ -9,6 +9,7 @@ import CheckInDate from "./CheckInDate"
 import { fetchData } from "@/lib/fetchData"
 import { dataToSendType } from "@/app/api/getRoom/route"
 import { Suspense } from "react"
+import Skeleton from "@/components/ui/skeleton"
 
 const NameOfCity = async ({ id } : {
     id: string
@@ -25,6 +26,23 @@ const NameOfCity = async ({ id } : {
         <h3 className="text-[22px] font-medium">{location}</h3>
     )
 }
+
+const UserInfoSkeleton = () => {
+    return(
+        <div>
+            <div className="py-6 border-y flex items-center">
+                <Skeleton 
+                    className="h-10 w-10 rounded-full mr-3 bg-black"
+                />
+            <div className="w-full">
+                <Skeleton className="h-3 w-1/3 mb-1 bg-black rounded-none"/>
+                <Skeleton className="h-3 w-1/3 bg-black rounded-none"/>
+            </div>
+        </div>    
+        </div>
+    )
+}
+
 const UserInfo = async ({ id } : {
     id: string
 }) => {
@@ -32,6 +50,7 @@ const UserInfo = async ({ id } : {
         method: 'POST',
         body: JSON.stringify(id)
     });
+
 
     const { postedBy : { image, name, nickname } } = data;
     return(
@@ -60,14 +79,14 @@ const Infomation = ({ id }: {
         <div className="flex py-8 justify-between">
             <div className=" flex-1">
                 <div className="">
-                    <Suspense fallback={<h1>Loading data for city name</h1>}>
+                    <Suspense fallback={<Skeleton className="w-1/2 h-5 rounded-none bg-black"/>}>
                         <NameOfCity 
                             id={id} 
                         />
                     </Suspense>
                     <h4 className="mt-1 text-base font-normal">Evening Experience</h4>
                 </div>
-                <Suspense fallback={<h1>Loading user info</h1>}>
+                <Suspense fallback={<UserInfoSkeleton />}>
                     <UserInfo 
                         id={id}
                     />
@@ -82,7 +101,7 @@ const Infomation = ({ id }: {
                 <PlaceOffer />
                 <CheckInDate />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 place-items-center">
                 <Card className="w-[350px] shadow p-6">
                     <CardContent className="text-center">
                         <h4 className="pt-2.5 pb-1.5 text-[22px]"><b>$0</b> per guest</h4>

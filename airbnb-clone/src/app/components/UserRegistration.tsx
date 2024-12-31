@@ -23,18 +23,19 @@ const UserRegistration = () => {
     redirect(url)
   }
 
-  useEffect(()=>{
-    const logic = (e: KeyboardEvent) => {
-      if(e.key === 'Escape'){
-        redirect(url)
-      }
-    }
+  // useEffect(()=>{
+  //   const logic = (e: KeyboardEvent) => {
+  //     if(e.key === 'Escape'){
+  //       console.log('hi')
+  //       redirect(url)
+  //     }
+  //   }
 
-    window.addEventListener('keyup', logic);
-    return () =>{
-      window.removeEventListener('keyup', logic)
-    }
-  }, [])
+  //   window.addEventListener('keyup', logic);
+  //   return () =>{
+  //     window.removeEventListener('keyup', logic)
+  //   }
+  // }, [])
 
   return (
    <div onClick={handleRedirect} className= {cn("fixed  inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 ", isSignUp ? 'block' : 'hidden')}>

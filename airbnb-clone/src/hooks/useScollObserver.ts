@@ -1,28 +1,54 @@
 'use client'
+
+import { useEffect, useState } from "react";
+
 const UseScollObserver = () => {
-  // const image = document.querySelector('#imageExhibition')
-  // const options = {
-  //   root: document.querySelector('body'),
-  //   rootMargin: '0px 0px -100%',
-  //   threshold: 0,
-  // };
-  // const callback = (entries, observer) => {
-  //   entries.forEach((entry) => {
-  //     console.log(entry)
-  //     // Each entry describes an intersection change for one observed
-  //     // target element:
-  //     //   entry.boundingClientRect
-  //     //   entry.intersectionRatio
-  //     //   entry.intersectionRect
-  //     //   entry.isIntersecting
-  //     //   entry.rootBounds
-  //     //   entry.target
-  //     //   entry.time
-  //   });
-  // };
-  // const observer = new IntersectionObserver(callback, options);
-  // if(image) observer.observe(image)
-  return ;
+  const [isOutOfView, setIsOutOfView] = useState<boolean>(false);
+  const [recc, setRecc] = useState<number>(0)
+  
+  
+  useEffect(()=>{
+    const ElementRef = document.querySelector('#imageExhibition')
+  
+    const handleScroll = () => {
+      
+      if(ElementRef){
+        const rect = ElementRef.getBoundingClientRect();
+        const isVisible = (rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth)) 
+        setIsOutOfView(isVisible);   
+        setRecc(document.documentElement.clientHeight)
+      }
+     
+
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+  // useEffect(()=>{
+  //   const observer = new IntersectionObserver((entries) => {
+  //     if(entries[0].isIntersecting){
+        
+  //       setIsOutOfView(false)
+  //     }
+  //     else {
+  //       setIsOutOfView(true)
+  //     }
+  //   }, {
+  //     root: null,
+  //     rootMargin: '100px',
+  //     threshold: 1.0
+  //   })
+
+
+  //   if(ElementRef) observer.observe(ElementRef)
+  //   return () => {
+  //     if(ElementRef) observer.unobserve(ElementRef)
+  //   }
+  // }, [])
+  return {isOutOfView, recc};
 }
 
 export default UseScollObserver

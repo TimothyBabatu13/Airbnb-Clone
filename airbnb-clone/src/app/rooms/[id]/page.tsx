@@ -1,10 +1,11 @@
 import Header from "@/app/components/Header";
-import { RoomHeaderButton } from "./components/RoomButtons";
+import { AllPhotosButton, RoomHeaderButton } from "./components/RoomButtons";
 import ImageExhibition from "./components/ImageExhibition";
 import Infomation from "./components/Infomation";
 import ScrollOb from "./components/ScrollOb";
 import { fetchData } from "@/lib/fetchData";
 import { Suspense } from "react";
+import Skeleton from "@/components/ui/skeleton";
 
 const Name = async ({ id } : {
     id: string
@@ -20,6 +21,23 @@ const Name = async ({ id } : {
     )
 }
 
+const ImageExhibitionLoader = () => {
+    return(
+        <div id="imageExhibition" className="pt-6 flex gap-2 relative">
+            <Skeleton className="h-[468.34px] rounded-none bg-black w-[342.677px] flex-1 rounded-l-2xl" />
+            <div className="grid grid-cols-2 gap-2 flex-1">
+                {Array.from(['','','','']).map((_, id) => (
+                    <Skeleton 
+                        className={`w-[full] rounded-none bg-black h-[230.17px] ${id === 1 && 'rounded-tr-2xl'} ${id === 3 && ' rounded-br-2xl'}`}
+                        key={id}
+                    />
+                ))}
+        </div>
+        <AllPhotosButton />
+        </div>
+    )
+}
+
 const page = async ({params}: {
     params: Promise<{
         id: string
@@ -27,18 +45,16 @@ const page = async ({params}: {
 }) => {
     const roomID = (await params).id;
 
-    
-    // console.log(roomID)
   return (
     <div>
         <Header />
         <div className="flex items-center justify-between">
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense fallback={<Skeleton className="h-5 w-1/4 rounded-none bg-black"/>}>
                 <Name id={roomID}/>
             </Suspense>
             <RoomHeaderButton id={roomID}/>
         </div>
-       <Suspense fallback={<h1>Image Exhibition Loading...</h1>}>
+       <Suspense fallback={<ImageExhibitionLoader />}>
         <ImageExhibition id={roomID}/>
        </Suspense>
         <Infomation id={roomID}/>
