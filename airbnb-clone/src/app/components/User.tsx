@@ -27,10 +27,10 @@ import Link from "next/link"
           <DropdownMenuGroup className="">
             
             <DropdownMenuItem asChild>
-             <Link href={'?signup=true'}>Sign up</Link>
+             <Link href={'/sign-in'}>Sign up</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-             <Link href={'?signup=true'}>Log in</Link>
+             <Link href={'/sign-in'}>Log in</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>

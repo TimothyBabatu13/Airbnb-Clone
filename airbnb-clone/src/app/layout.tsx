@@ -4,6 +4,9 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster"
 import UserRegistration from "./components/UserRegistration";
 import { Suspense } from "react";
+import {
+  ClerkProvider,
+} from '@clerk/nextjs'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,18 +30,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased mx-10`}
-      >
-        <main>
-            {children}
-            <Suspense fallback={<h1>Loading...</h1>}>
-              <UserRegistration />
-            </Suspense>
-        </main>
-        <Toaster />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased mx-10`}
+        >
+          <main>
+              {children}
+              <Suspense fallback={<h1>Loading...</h1>}>
+                {/* <UserRegistration /> */}
+              </Suspense>
+          </main>
+          <Toaster />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
