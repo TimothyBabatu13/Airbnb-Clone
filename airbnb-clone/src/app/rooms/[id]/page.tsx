@@ -3,7 +3,7 @@ import { AllPhotosButton, RoomHeaderButton } from "./components/RoomButtons";
 import ImageExhibition from "./components/ImageExhibition";
 import Infomation from "./components/Infomation";
 import ScrollOb from "./components/ScrollOb";
-import { fetchData } from "@/lib/fetchData";
+import {  fetchDatas } from "@/lib/fetchData";
 import { Suspense } from "react";
 import Skeleton from "@/components/ui/skeleton";
 
@@ -11,7 +11,7 @@ const Name = async ({ id } : {
     id: string
 }) => {
 
-    const data = await fetchData('http://localhost:3000/api/getRoom', {
+    const data = await fetchDatas('https://airbnb-clone-chi-black.vercel.app/api/getRoom', {
         method: 'POST',
         body: JSON.stringify(id)
     })

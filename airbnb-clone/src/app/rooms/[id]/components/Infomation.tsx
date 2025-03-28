@@ -6,7 +6,7 @@ import RoomDescription from "./RoomDescription"
 import SleepingRoomPreview from "./SleepingRoomPreview"
 import PlaceOffer from "./PlaceOffer"
 import CheckInDate from "./CheckInDate"
-import { fetchData } from "@/lib/fetchData"
+import { fetchDatas } from "@/lib/fetchData"
 import { dataToSendType } from "@/app/api/getRoom/route"
 import { Suspense } from "react"
 import Skeleton from "@/components/ui/skeleton"
@@ -15,7 +15,7 @@ const NameOfCity = async ({ id } : {
     id: string
 }) => {
 
-    const data : dataToSendType = await fetchData('http://localhost:3000/api/getRoom',{
+    const data : dataToSendType = await fetchDatas('/api/getRoom',{
         method: 'POST',
         body: JSON.stringify(id)
     });
@@ -46,7 +46,7 @@ const UserInfoSkeleton = () => {
 const UserInfo = async ({ id } : {
     id: string
 }) => {
-    const data : dataToSendType = await fetchData('http://localhost:3000/api/getRoom',{
+    const data : dataToSendType = await fetchDatas('/api/getRoom',{
         method: 'POST',
         body: JSON.stringify(id)
     });

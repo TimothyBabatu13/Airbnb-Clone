@@ -1,4 +1,5 @@
 import { LodgeCardType } from "@/app/components/LodgeCard"
+// import { wait } from "@/lib/utils"
 
 type Data = LodgeCardType[]
 
@@ -39,9 +40,7 @@ const DATA = [
     },
 ]
 
-export const wait = async (time: number) => {
-    return new Promise(resolve => setTimeout(resolve, time))
-}
+
 export const GET = async () : Promise<Response> => {
     const images : string[] = ["/first_1.jpeg", "/first_2.jpeg", "/first_3.jpeg", "/first_4.jpeg"]
 
@@ -56,7 +55,7 @@ export const GET = async () : Promise<Response> => {
             price: '0'
         })
     }
-    await wait(5000);
+    // await wait(5000);
     console.log('coming from api')
     // revalidatePath(`/?type=${}`)
     return new Response(JSON.stringify(DATA))

@@ -1,11 +1,11 @@
-import { fetchData } from "@/lib/fetchData"
+import {  fetchDatas } from "@/lib/fetchData"
 import LodgeCard, { LodgeCardType } from "./LodgeCard"
 import LodgeCardWrapper from "./LodgeCardWrapper"
 import { Suspense } from "react";
 import { LodgeCardSkeleton } from "@/components/ui/skeleton";
 
 const LodgeCardData = async () => {
-  const data : LodgeCardType[] = await fetchData('http://localhost:3000/api/getAllRooms'); 
+  const data : LodgeCardType[] = await fetchDatas('https://airbnb-clone-chi-black.vercel.app/api/getAllRooms'); 
   console.log('running heyyy')
   return (
     <LodgeCardWrapper>

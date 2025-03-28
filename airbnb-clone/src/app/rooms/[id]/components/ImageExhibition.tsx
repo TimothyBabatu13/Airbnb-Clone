@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { AllPhotosButton } from "./RoomButtons"
-import { fetchData } from "@/lib/fetchData"
+import {  fetchDatas } from "@/lib/fetchData"
 import { dataToSendType } from "@/app/api/getRoom/route"
 
 const SmallImage = ({ myId, src } : {
@@ -29,7 +29,7 @@ const SmallImage = ({ myId, src } : {
 const ImageExhibition = async ({ id } : {
     id: string
 }) => {
-    const data : dataToSendType = await fetchData('http://localhost:3000/api/getRoom', {
+    const data : dataToSendType = await fetchDatas('https://airbnb-clone-chi-black.vercel.app/api/getRoom', {
         method: 'POST',
         body: JSON.stringify(id)
     })

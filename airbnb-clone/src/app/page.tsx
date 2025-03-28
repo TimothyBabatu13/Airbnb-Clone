@@ -9,8 +9,8 @@ import { fetchData } from "@/lib/fetchData";
 import { LodgeCardSkeleton } from "@/components/ui/skeleton";
 
 async function HeaderCard() {
-
-  const [d1, d2] : LodgeCardType[] = await fetchData('http://localhost:3000/api/getAllRooms');
+//https://airbnb-clone-chi-black.vercel.app/
+  const [d1, d2] : LodgeCardType[] = await fetchData('https://airbnb-clone-chi-black.vercel.app/api/getAllRooms');
 
   return (
     <>

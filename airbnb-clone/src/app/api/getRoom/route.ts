@@ -1,4 +1,5 @@
-import { wait } from "../getAllRooms/route";
+// import { wait } from "@/lib/utils";
+
 
 export interface dataToSendType {
         name: string,
@@ -27,6 +28,6 @@ const dataToSend = {
 export const POST = async (body: Request) : Promise<Response> => {
     const id = await body.json();
     console.log(id)
-    await wait(5000)
+    // await wait(5000)
     return new Response(JSON.stringify(dataToSend))
 }

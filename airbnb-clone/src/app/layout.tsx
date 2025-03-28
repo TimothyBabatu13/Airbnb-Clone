@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster"
-import UserRegistration from "./components/UserRegistration";
-import { Suspense } from "react";
 import {
   ClerkProvider,
 } from '@clerk/nextjs'
@@ -37,9 +35,6 @@ export default function RootLayout({
         >
           <main>
               {children}
-              <Suspense fallback={<h1>Loading...</h1>}>
-                {/* <UserRegistration /> */}
-              </Suspense>
           </main>
           <Toaster />
         </body>

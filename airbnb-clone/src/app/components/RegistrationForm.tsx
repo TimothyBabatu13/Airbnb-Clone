@@ -36,7 +36,7 @@ const AppleButton = () => {
     const [isDisabled, setDisabled] = useState<boolean>(false);
     useEffect(()=>{
         const fetchData = async () => {
-            fetch('http://localhost:3000/api/checkos')
+            fetch('/api/checkos')
             .then(res => res.json())
             .then(() => setDisabled(true))
             .catch(err => console.log(err))

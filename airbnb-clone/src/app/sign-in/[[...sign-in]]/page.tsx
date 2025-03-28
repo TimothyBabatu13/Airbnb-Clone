@@ -1,11 +1,5 @@
 // app/sign-up/[[...sign-up]]/page.tsx
 "use client";
-
-import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
-import { useSignUp } from "@clerk/nextjs";
-import SignupForm from "./Signup-form";
-import VerifyForm from "./Verify-form";
 import UserRegistration from "@/app/components/UserRegistration";
 
 
