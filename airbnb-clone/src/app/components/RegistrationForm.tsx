@@ -94,13 +94,13 @@ const RegistrationButton = () => {
 const RegistrationForm = () => {
 
     const [phone, setPhone] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState<string>('');
+    // const [phoneNumber, setPhoneNumber] = useState<string>('');
     const [location, setLocation] = useState<string | null>(null);
     const labelElemet = useRef<HTMLLabelElement | null>(null);
  
     // console.log(phoneNumber)
     // console.log(setPhoneNumber)
-    // console.log(labelElemet)
+    console.log(labelElemet)
     useEffect(() => {
         const fetchCountryCode = async () : Promise<string> => {
             const api = await fetch('http://ip-api.com/json');

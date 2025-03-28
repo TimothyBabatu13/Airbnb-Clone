@@ -6,7 +6,7 @@ import LodgeCardWrapper from "./components/LodgeCardWrapper";
 import Footer from "./components/Footer";
 import { Suspense } from "react";
 import { fetchData } from "@/lib/fetchData";
-import Skeleton, { LodgeCardSkeleton } from "@/components/ui/skeleton";
+import { LodgeCardSkeleton } from "@/components/ui/skeleton";
 
 async function HeaderCard() {
 

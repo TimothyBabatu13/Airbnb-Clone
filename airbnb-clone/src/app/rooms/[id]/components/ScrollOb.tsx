@@ -1,10 +1,10 @@
 'use client';
-import UseScollObserver from '@/hooks/useScollObserver'
+// import UseScollObserver from '@/hooks/useScollObserver'
 import { useEffect } from 'react';
 
 
 const ScrollOb = () => {
-  const { isOutOfView, recc }= UseScollObserver();
+  // const { isOutOfView, recc }= UseScollObserver();
     useEffect(()=>{
         // UseScollObserver()
     }, [])

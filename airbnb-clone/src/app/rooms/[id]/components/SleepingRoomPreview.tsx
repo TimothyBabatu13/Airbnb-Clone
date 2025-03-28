@@ -29,10 +29,12 @@ const SleepingRoomPreview = () => {
     ]
     const [num, setNumber] = useState(1);
     const divisionValue = (num : number) => num / 2;
+
+    console.log(setNumber)
   return (
     <div className="border-b py-12">
         <div className="flex justify-between mb-6">
-            <h4 className="text-[22px] font-medium">Where you'll sleep</h4>
+            <h4 className="text-[22px] font-medium">Where you&apos;ll sleep</h4>
             <div>
                <span> {num}/{divisionValue(data.length)}</span>
             </div>

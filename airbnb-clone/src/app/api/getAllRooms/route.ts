@@ -44,7 +44,7 @@ export const wait = async (time: number) => {
 }
 export const GET = async () : Promise<Response> => {
     const images : string[] = ["/first_1.jpeg", "/first_2.jpeg", "/first_3.jpeg", "/first_4.jpeg"]
-    
+
     const dataToReturn : Data = []
     for (let i = 0; i < 9; i++){
         dataToReturn.push({
@@ -58,6 +58,6 @@ export const GET = async () : Promise<Response> => {
     }
     await wait(5000);
     console.log('coming from api')
-
+    // revalidatePath(`/?type=${}`)
     return new Response(JSON.stringify(DATA))
 } 

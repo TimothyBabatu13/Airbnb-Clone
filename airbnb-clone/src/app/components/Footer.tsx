@@ -105,8 +105,8 @@ const Footer = () => {
             }
           </div>
           <div className="grid grid-cols-6 mt-8 gap-6">
-            {listsOfData.map((item, id) => (
-              item.map((i, _) => (
+            {listsOfData.map((item) => (
+              item.map((i) => (
                 <div key={crypto.randomUUID()}>
                   <div className="text-sm">{i.heading}</div>
                   <div className="text-sm text-[#6A6A6A] font-normal">{i.other}</div>
@@ -117,7 +117,7 @@ const Footer = () => {
         </div>
         <div className="py-12 grid grid-cols-3 border-b">
           {
-            FooterLinks.map((link, id) => (
+            FooterLinks.map((link) => (
               <div key={crypto.randomUUID()}>
                 <h6 
                   className="mb-3 font-semibold"

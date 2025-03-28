@@ -5,7 +5,6 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import {  useSearchParams, useRouter, usePathname } from "next/navigation";
 import RegistrationForm from "./RegistrationForm";
-import { useEffect } from "react";
 
 
 const UserRegistration = () => {
