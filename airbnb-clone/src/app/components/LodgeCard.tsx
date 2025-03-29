@@ -34,7 +34,7 @@ const LodgeCard = ({ data } : {
     
   return (
     <div>
-        <Carousel className="w-full mb-3">
+        <Carousel className="w-full carousel--width mb-3">
             <CarouselContent className="h-[298.22px]">
                 {
                     data?.images.map((bg, index) => (
