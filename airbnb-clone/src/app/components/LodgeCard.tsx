@@ -23,7 +23,7 @@ const BackgroundImage = ({ background, name } : {
                 height={323.312}
                 width={340.333}
                 alt={`${name} image`}
-                className="rounded-xl mb-3 h-full w-full"
+                className="rounded-xl mb-3 h-full w-full max-w-full"
             />
     )
 }

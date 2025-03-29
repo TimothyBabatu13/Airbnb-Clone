@@ -5,7 +5,7 @@ import HeaderRight from "./HeaderRight"
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between">
+    <header className="hidden md:flex py-5 items-center justify-between">
         <Link href={'/'}>
             <LogoWithText className=" bg-white text-[#FF385C]"/>
         </Link>

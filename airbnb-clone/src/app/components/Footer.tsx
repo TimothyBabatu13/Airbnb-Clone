@@ -85,7 +85,7 @@ const Footer = () => {
 
   return (
     <footer >
-        <div style={{background:'rgba(0,0,0,0)'}} className="py-12 border-b">
+        {/* <div style={{background:'rgba(0,0,0,0)'}} className="py-12 border-b">
           <h4 className="mb-2 text-[22px]">Inspiration for future getaways</h4>
           <div 
             className="flex gap-0 border-b"
@@ -162,7 +162,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
     </footer>
   )
 }
