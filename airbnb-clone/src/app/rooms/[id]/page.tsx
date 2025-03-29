@@ -1,3 +1,4 @@
+'use client';
 import Header from "@/app/components/Header";
 import { AllPhotosButton, RoomHeaderButton } from "./components/RoomButtons";
 import ImageExhibition from "./components/ImageExhibition";
@@ -11,7 +12,7 @@ const Name = async ({ id } : {
     id: string
 }) => {
 
-    const data = await fetchDatas('https://airbnb-clone-chi-black.vercel.app/api/getRoom', {
+    const data = await fetchDatas('https://localhost:3000/api/getRoom', {
         method: 'POST',
         body: JSON.stringify(id)
     })

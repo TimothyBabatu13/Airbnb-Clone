@@ -1,5 +1,4 @@
 import { LodgeCardType } from "@/app/components/LodgeCard"
-// import { wait } from "@/lib/utils"
 
 type Data = LodgeCardType[]
 

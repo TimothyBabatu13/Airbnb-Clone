@@ -1,30 +1,55 @@
-import {  fetchDatas } from "@/lib/fetchData"
+'use client';
 import LodgeCard, { LodgeCardType } from "./LodgeCard"
 import LodgeCardWrapper from "./LodgeCardWrapper"
-import { Suspense } from "react";
+import { useEffect, useState } from "react";
 import { LodgeCardSkeleton } from "@/components/ui/skeleton";
 
-const LodgeCardData = async () => {
-  const data : LodgeCardType[] = await fetchDatas('https://airbnb-clone-chi-black.vercel.app/api/getAllRooms'); 
-  console.log('running heyyy')
+const LodgeCardData = () => {
+  const [data, setData] = useState<null | LodgeCardType[]>(null)
+  const fetchData = async () => {
+    const api = await fetch('/api/getAllRooms');
+    const res = await api.json();
+    setData(res);
+  }
+
+  useEffect(()=>{
+    fetchData()
+  }, [])
+  
+  const skeleton = Array.from(['','','','','','','',''].map((item, id) => <LodgeCardSkeleton key={id}/>))
   return (
     <LodgeCardWrapper>
+       <>
+        {
+            data ? 
+            (
+            <>
+              {data?.map(lodgeCardData => 
+              (
+                <LodgeCard key={lodgeCardData.id} data={lodgeCardData} />  
+              ))}
+            </>
+            ) : 
+            (
+                <> 
+                    {skeleton}
+                </>
+            )
+        }
+        
+      </>
           {
-            data?.map(lodgeCardData => (
-              <LodgeCard key={lodgeCardData.id} data={lodgeCardData} />  
-            ))
+            
           }
         </LodgeCardWrapper>
   )
 }
 
-const PastExoeriences = async () => {
+const PastExoeriences = () => {
   return (
     <div>
         <h2 className="mt-[52px] mb-6 text-[32px]">Past experiences</h2>
-        <Suspense fallback={<LodgeCardWrapper>{Array.from(['','','','','','','',''].map((item, id) => <LodgeCardSkeleton key={id} />))}</LodgeCardWrapper>}>
-          <LodgeCardData />
-        </Suspense>
+        <LodgeCardData />
     </div>
   )
 }
