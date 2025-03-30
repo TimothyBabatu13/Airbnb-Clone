@@ -31,7 +31,7 @@ const BackgroundImage = ({ background, name } : {
 const LodgeCard = ({ data } : {
     data: LodgeCardType
 }) => {
-    
+
   return (
     <div>
         <Carousel className="w-full carousel--width mb-3">
@@ -53,7 +53,7 @@ const LodgeCard = ({ data } : {
             <CarouselNext className="right-3">
                 <RightIcon /> 
             </CarouselNext>  
-            <ShareButton id={data.id} /> 
+            <ShareButton id={data.id} img={data.images} hostedBy={data.author} /> 
         </Carousel>
         <Link href={`/rooms/${data.id}`}  className="text-[15px]">
             <h1 className="font-medium text-[#222222]">{data.name}</h1>

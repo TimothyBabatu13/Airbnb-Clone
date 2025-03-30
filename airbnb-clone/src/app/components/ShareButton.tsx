@@ -14,7 +14,6 @@ import Image from "next/image";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
-
 const ActionButton = ({ children, action } : {
     children: React.ReactNode,
     action: ()=>void
@@ -22,7 +21,7 @@ const ActionButton = ({ children, action } : {
     return(
         <Button 
             onClick={action} 
-            className="w-full h-[50px] flex justify-start items-center bg-[#FFFFFF] text-[#222222] hover:bg-[#F7F7F7] border border-[#DDDDDD] rounded-xl"
+            className="w-full h-[50px] flex text-[11px] md:text-sm justify-start items-center bg-[#FFFFFF] text-[#222222] hover:bg-[#F7F7F7] border border-[#DDDDDD] rounded-xl"
         >
             {children}
         </Button>
@@ -40,37 +39,63 @@ const ActionButtons = ({ id } : {
         toast({description: 'Link copied'})
     }
 
+    const ShareOnWhatsApp = () => {
+        return;
+    }
+    const ShareEmail = () => {
+        return;
+    }
+
+    const ShareThroughTextMessage = () => {
+        return;
+    }
+
+    const ShareThroughFacebook = () => {
+        return;
+    }
+
+    const shareMoreOptions = async () => {
+        await navigator.share({text: 'hey'});
+    }
+
+    const shareThroughMessenger = () => {
+        return;
+    }
+
+    const shareThroughTwitter = () => {
+        return;
+    }
     return(
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-2 md:gap-4">
             <ActionButton action={copyLink}>
                 <CopyIcon /> 
                 <span>Copy link</span>
             </ActionButton>
-            <ActionButton action={()=>{console.log('')}}>
+            <ActionButton action={ShareEmail}>
                 <EmailIcon />
                 <span>Email</span> 
             </ActionButton>
-            <ActionButton action={()=>{console.log('')}} >
+            <ActionButton action={ShareThroughTextMessage} >
                 <MessageIcon />
                 <span>Messages</span>
             </ActionButton>
-            <ActionButton action={()=>{console.log('')}} >
+            <ActionButton action={ShareOnWhatsApp} >
                 <WhatsAppIcon />
                 <span>WhatsApp</span>
             </ActionButton>
-            <ActionButton action={()=>{console.log('')}} >
+            <ActionButton action={shareThroughMessenger} >
                 <MessengerIcon />
                 <span>Messenger</span>
             </ActionButton>
-            <ActionButton action={()=>{console.log('')}} >
+            <ActionButton action={ShareThroughFacebook} >
                 <FacebookIcon />
                 <span>Facebook</span>
             </ActionButton>
-            <ActionButton action={()=>{console.log('')}} >
+            <ActionButton action={shareThroughTwitter} >
                 <TwitterIcon />
                 <span>Twitter</span>
             </ActionButton>
-            <ActionButton action={()=>{console.log('')}} >
+            <ActionButton action={shareMoreOptions} >
                 <MoreOptionsIcon/>
                 <span>More options</span>
             </ActionButton>
@@ -78,22 +103,21 @@ const ActionButtons = ({ id } : {
     )
 }
 
-// export const MyCustomDialog = () => {
-//     return(
-//         <Dialog>
 
-//         </Dialog>
-//     )
-// }
-const ShareButton = ({ id, className, children } : {
+const ShareButton = ({ id, className, children, img, hostedBy } : {
     id: string,
     className?: string,
     children?: React.ReactNode,
+    img: string[],
+    hostedBy: string
 }) => {
+
+    const IMAGE_SRC = img[0];
     const handleClick = async () => {
         console.log('Share button is clicked')
         // await navigator.share({text: 'hey'});
     }
+    
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -104,27 +128,27 @@ const ShareButton = ({ id, className, children } : {
                 {children ? children : <ShareIcon />}
         </button>
       </DialogTrigger>
-      <DialogContent className="w-[568px]">
-        <DialogHeader className="mt-10 mb-6">
+      <DialogContent className="w-[568px] max-w-[100%]">
+        <DialogHeader className="mt-10 md:mb-6">
           <DialogTitle></DialogTitle>
-          <DialogDescription className="text-[26px] font-medium">
+          <DialogDescription className="text-[20px] md:text-[26px] font-medium">
             Share this experience
           </DialogDescription>
         </DialogHeader>
-        <div className="flex items-center">
+        <div className="flex flex-col md:flex-row items-center">
           <div className="">
             {/* Main content goes here */}
             <Image 
-                src={'/first_1.jpeg'}
+                src={IMAGE_SRC}
                 alt=""
                 height={64}
                 width={64}
                 objectFit="cover"
-                className="h-16 w-16 rounded-[8px] mr-4"
+                className="h-16 w-16 rounded-[8px] mr-4 mb-2 md:mb-0"
             />
           </div>
-          <h2 className="text-base">
-            Stay in Prince’s Purple Rain house
+          <h2 className="text-sm md:text-base">
+            Stay in {hostedBy}'s house
           </h2>
         </div>
         <ActionButtons id={id}/>

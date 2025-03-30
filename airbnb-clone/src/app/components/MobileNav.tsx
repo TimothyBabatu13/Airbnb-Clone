@@ -48,7 +48,7 @@ const MobileNav = () => {
             <span>Wishlists</span>
         </ActionButton>
         <ActionButton 
-            href=""
+            href="/sign-in"
             isActive={2 === active}
         >
             <UserCircleIcon 
