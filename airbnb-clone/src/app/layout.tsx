@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster"
+import RouteObserver from "@/context/RouteObserver";
 // import {
 //   ClerkProvider,
 // } from '@clerk/nextjs'
@@ -34,7 +35,9 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased mx-10`}
         >
           <main>
+            <RouteObserver>
               {children}
+            </RouteObserver>
           </main>
           <Toaster />
         </body>
