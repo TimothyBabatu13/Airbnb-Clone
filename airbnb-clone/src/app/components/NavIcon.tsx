@@ -1,4 +1,4 @@
-import * as React from "react"
+'use client';
 
 import {
   Carousel,
@@ -10,35 +10,45 @@ import {
 import Image from "next/image"
 import { LeftIcon, RightIcon } from "./Icons"
 import Link from "next/link"
+import { useEffect, useState } from "react"
+import { useSearchParams } from "next/navigation";
 
 /* 
 npx shadcn@latest add carousel
 */
-const IconWithText = ({ active, name, src } : {
+const IconWithText = ({ active, name, src, id } : {
     active: boolean,
     src: string,
-    name: string
+    name: string,
+    id: string
 }) => {
 
-    const generateRandomID = () => {
-        return crypto.randomUUID()
-    }
-    const h = generateRandomID();
-
     return (
-        <Link href={`?type=${h}`}  className={`flex flex-col items-center w-fit  ${active && 'border-b-black border-b-2'} py-1 mt-3 mb-2.5 ${!active ? 'cursor-pointer hover:border-b-2' : 'cursor-auto'}`}>
+        <Link href={`?type=${id}`}  className={`flex flex-col items-center w-fit  ${active && 'border-b-black border-b-2'} py-1 mt-3 mb-2.5 ${!active ? 'cursor-pointer hover:border-b-2' : 'cursor-auto'}`}>
             <Image 
                 src={src}
                 height={24}
                 width={24}
                 alt={name+ ' icon'}
+                className="size-4 md:size-6"
             />
-            <span className="">{name}</span>
+            <span 
+                className="text-sm md:text-base"
+            >
+                {name}</span>
         </Link>
     )
 }
 
 const NavIcon = () => {
+    const [urlParams, setUrlParams] = useState<string | null>(null);
+    const params = useSearchParams();
+    const param = params.get('type');
+    
+    useEffect(()=>{
+       setUrlParams(param);
+    }, [param])
+
     const navData = [
         {
             imgPath: '/icons.png',
@@ -301,11 +311,11 @@ const NavIcon = () => {
         {navData.map((_, index) => (
         <CarouselItem key={index} className={`basis-auto ${index !== navData.length -1 && 'mr-8'}`}>
             <IconWithText 
-                    
-                    active={index === 0 ? true : false}
-                    src={_.imgPath}
-                    name={_.text}
-                />
+                active={index === Number(urlParams) ? true : false}
+                src={_.imgPath}
+                name={_.text}
+                id={index.toString()}
+            />
           </CarouselItem>
         ))}
       </CarouselContent>

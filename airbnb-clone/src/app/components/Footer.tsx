@@ -81,7 +81,7 @@ const FooterLinks = [
 const Footer = () => {
   const [active, setActive] = useState<string>('Popular')
   const listsOfData = lists.filter(list => list.type === active).map(list => list.elements); 
-  console.log(listsOfData)
+  // console.log(listsOfData)
 
   return (
     <footer >
