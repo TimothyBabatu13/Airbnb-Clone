@@ -25,7 +25,12 @@ export const RoomHeaderButton = ({ id } : {
     }
     return(
         <div className="flex items-center">
-            <ShareButton className={cn("relative top-0 right-10 mr-0 flex items-center !bg-transparent text-black !shadow-none !hover:bg-[#F7F7F7] ")} id={id}>
+            <ShareButton 
+                hostedBy=""
+                img={['/11.avif']}
+                className={cn("relative top-0 right-10 mr-0 flex items-center !bg-transparent text-black !shadow-none !hover:bg-[#F7F7F7] ")} 
+                id={id}
+            >
                 <ShareIcon /> 
                 <span className="underline ml-2"> Share</span> 
             </ShareButton>
