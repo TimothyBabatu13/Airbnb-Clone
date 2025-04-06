@@ -20,12 +20,12 @@ const RouteObserver = ({ children } : {
     
     const computeRoute = () : string => {
         if(!param) return path;
-        return `/type${param}`
+        return `/?type=${param}`
     }
 
     useEffect(()=>{
         setRoute(computeRoute());
-    }, [path, param])
+    }, [path, param, computeRoute])
 
   return (
     <RouteContext.Provider

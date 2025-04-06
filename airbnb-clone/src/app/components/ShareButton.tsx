@@ -148,7 +148,7 @@ const ShareButton = ({ id, className, children, img, hostedBy } : {
             />
           </div>
           <h2 className="text-sm md:text-base">
-            Stay in {hostedBy}'s house
+            Stay in {hostedBy}&apos;s house
           </h2>
         </div>
         <ActionButtons id={id}/>

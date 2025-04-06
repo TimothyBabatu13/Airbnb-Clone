@@ -23,6 +23,7 @@ const MobileNav = () => {
     const [active, setIsActive] = useState<number>(0);
 
     useEffect(()=>{
+        setIsActive(0)
         //check for the location of the window to know the active element
     }, [])
   return (
