@@ -3,7 +3,6 @@ import { AllPhotosButton, RoomHeaderButton } from "./components/RoomButtons";
 import ImageExhibition from "./components/ImageExhibition";
 import Infomation from "./components/Infomation";
 import ScrollOb from "./components/ScrollOb";
-import {  fetchDatas } from "@/lib/fetchData";
 import { Suspense } from "react";
 import Skeleton from "@/components/ui/skeleton";
 import { relativePath } from "@/components/HomeHeader";

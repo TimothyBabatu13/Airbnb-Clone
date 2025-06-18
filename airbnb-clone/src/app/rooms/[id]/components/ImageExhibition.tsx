@@ -2,7 +2,6 @@
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { AllPhotosButton } from "./RoomButtons"
-import {  fetchDatas } from "@/lib/fetchData"
 import { dataToSendType } from "@/app/api/getRoom/route"
 import { relativePath } from "@/components/HomeHeader"
 
