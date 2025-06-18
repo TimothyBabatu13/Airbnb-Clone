@@ -1,8 +1,9 @@
-'use client';
 
-import LodgeCard, { LodgeCardType } from "@/app/components/LodgeCard";
-import { useEffect, useState } from "react";
+import LodgeCard from "@/app/components/LodgeCard";
+// import { useEffect, useState } from "react";
 import { LodgeCardSkeleton } from "./ui/skeleton";
+import { headers } from "next/headers";
+
 
 const DATA = [
     {
@@ -42,22 +43,29 @@ const DATA = [
         price: '118'
     },
   ]
+
+  export const relativePath = async () => {
+    const header = headers();
+    const result = (await header).get('host');
+    return `http:/${result}/`;
+  }
   
-  export function HeaderCard() {
-    const [data, setData] = useState<LodgeCardType[] | null>(null)
-    useEffect(()=> {
-      const fetchDataa = async () => {
-        const api = await fetch('/api/getAllRooms');
-        const res = await api.json();
-        setData(res);
-      }
-      fetchDataa();
-    }, [])
-  
-    const skeleton = Array.from(['',''].map((item, id) => <LodgeCardSkeleton key={id}/>))
+  export async  function HeaderCard() {
+
+    const fetchData = async () => {
+      const path = await relativePath();
+      const api = await fetch(`${path}/api/getAllRooms`);
+      return api.json()
+    }
+
+    const result = await fetchData();
+    console.log(result)
+    
+    const skeleton = Array.from(['',''].map((_, id) => <LodgeCardSkeleton key={id}/>))
+    console.log(skeleton)
     return (
       <>
-        {
+        {/* {
             data ? 
             (
             <>
@@ -74,9 +82,14 @@ const DATA = [
                     {skeleton}
                 </>
             )
-        }
+        } */}
         
-        
+        <LodgeCard 
+          data={DATA[0]}
+        />
+        <LodgeCard 
+          data={DATA[1]}
+        />
       </>
     )
   }

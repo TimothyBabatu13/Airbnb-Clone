@@ -1,45 +1,55 @@
-'use client';
+'use client'
 
-import { usePathname, useSearchParams } from "next/navigation";
-import { createContext, useContext, useEffect, useState } from "react";
+import { usePathname, useSearchParams } from 'next/navigation'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  Suspense,
+} from 'react'
 
 interface RouteContextType {
-    path: string | null
+  path: string | null
 }
 
-const RouteContext = createContext<null | RouteContextType>(null);
+const RouteContext = createContext<null | RouteContextType>(null)
 
-const RouteObserver = ({ children } : {
-    children: React.ReactNode
-}) => {
+const InnerObserver = () => {
+  const [route, setRoute] = useState<null | string>(null)
+  const path = usePathname()
+  const params = useSearchParams()
+  const param = params.get('type')
 
-    const [route, setRoute] = useState<null | string>(null);
-    const path = usePathname();
-    const params = useSearchParams();
-    const param = params.get('type');
-    
-    const computeRoute = () : string => {
-        if(!param) return path;
-        return `/?type=${param}`
-    }
+  const computeRoute = (): string => {
+    if (!param) return path
+    return `/?type=${param}`
+  }
 
-    useEffect(()=>{
-        setRoute(computeRoute());
-    }, [path, param, computeRoute])
+  useEffect(() => {
+    setRoute(computeRoute())
+  }, [path, param])
 
   return (
-    <RouteContext.Provider
-        value={{path: route}}
-    >
-        {children}
+    <RouteContext.Provider value={{ path: route }}>
+      null
     </RouteContext.Provider>
   )
 }
 
-export const useRouteObserver = () => {
-    const context = useContext(RouteContext);
-    if(!context) return;
-    return context;
+const RouteObserver = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <Suspense fallback={null}>
+      <InnerObserver />
+      {children}
+    </Suspense>
+  )
 }
 
-export default RouteObserver;
+export const useRouteObserver = () => {
+  const context = useContext(RouteContext)
+  if (!context) return
+  return context
+}
+
+export default RouteObserver

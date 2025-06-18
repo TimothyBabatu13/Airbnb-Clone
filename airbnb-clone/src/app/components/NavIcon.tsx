@@ -10,7 +10,7 @@ import {
 import Image from "next/image"
 import { LeftIcon, RightIcon } from "./Icons"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import { useSearchParams } from "next/navigation";
 
 /* 
@@ -40,7 +40,7 @@ const IconWithText = ({ active, name, src, id } : {
     )
 }
 
-const NavIcon = () => {
+const InnerComponet = () => {
     const [urlParams, setUrlParams] = useState<string | null>(null);
     const params = useSearchParams();
     const param = params.get('type');
@@ -339,5 +339,11 @@ const NavIcon = () => {
     </div>
   )
 }
-
+const NavIcon = () => {
+    return(
+        <Suspense fallback={null}>
+            <InnerComponet />
+        </Suspense>
+    )
+}
 export default NavIcon
