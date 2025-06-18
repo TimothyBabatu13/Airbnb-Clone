@@ -44,6 +44,23 @@ const DATA = [
     },
   ]
 
+
+
+const fetchData = async () => {
+  const host = (await headers()).get('host');
+  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
+  const url = `${protocol}://${host}/api/getAllRooms`;
+
+  const res = await fetch(url, { cache: 'no-store' });
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch data: ${res.status}`);
+  }
+
+  return res.json();
+};
+
+
   export const relativePath = async () => {
     const header = headers();
     const result = (await header).get('host');
@@ -52,12 +69,12 @@ const DATA = [
   
   export async  function HeaderCard() {
 
-    const fetchData = async () => {
-      const path = await relativePath();
-      const api = await fetch(`${path}/api/getAllRooms`);
-      const result = await api.json();
-      return result
-    }
+    // const fetchData = async () => {
+    //   const path = await relativePath();
+    //   const api = await fetch(`${path}/api/getAllRooms`);
+    //   const result = await api.json();
+    //   return result
+    // }
 
     const result = await fetchData();
     console.log(result)
