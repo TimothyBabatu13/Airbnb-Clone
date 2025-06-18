@@ -7,6 +7,7 @@ import {
   useEffect,
   useState,
   Suspense,
+  useCallback,
 } from 'react'
 
 interface RouteContextType {
@@ -21,19 +22,17 @@ const InnerObserver = () => {
   const params = useSearchParams()
   const param = params.get('type')
 
-  const computeRoute = (): string => {
+  const computeRoute = useCallback((): string => {
     if (!param) return path
     return `/?type=${param}`
-  }
+  }, [])
 
   useEffect(() => {
     setRoute(computeRoute())
-  }, [path, param])
+  }, [path, param, computeRoute])
 
   return (
-    <RouteContext.Provider value={{ path: route }}>
-      null
-    </RouteContext.Provider>
+    <RouteContext.Provider value={{ path: route }} />
   )
 }
 
