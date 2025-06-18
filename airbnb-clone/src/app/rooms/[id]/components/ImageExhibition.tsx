@@ -4,6 +4,7 @@ import Image from "next/image"
 import { AllPhotosButton } from "./RoomButtons"
 import {  fetchDatas } from "@/lib/fetchData"
 import { dataToSendType } from "@/app/api/getRoom/route"
+import { relativePath } from "@/components/HomeHeader"
 
 const SmallImage = ({ myId, src } : {
     myId: number,
@@ -29,10 +30,18 @@ const SmallImage = ({ myId, src } : {
 const ImageExhibition = async ({ id } : {
     id: string
 }) => {
-    const data : dataToSendType = await fetchDatas('https://airbnb-clone-chi-black.vercel.app/api/getRoom', {
-        method: 'POST',
-        body: JSON.stringify(id)
-    })
+    
+    const fetchData = async () => {
+        const path = await relativePath();
+        const api = await fetch(`${path}/api/getRoom`, {
+            method: 'POST',
+            body: JSON.stringify(id)
+        });
+        const result = await api.json();
+        return result;
+    }
+        
+    const data: dataToSendType = await fetchData(); 
 
     const { images }= data;
     const [img1, ...imgs] = images

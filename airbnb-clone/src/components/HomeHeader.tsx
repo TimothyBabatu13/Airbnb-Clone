@@ -46,68 +46,43 @@ const DATA = [
 
 
 
-const fetchData = async () => {
+export const relativePath = async () => {
   const host = (await headers()).get('host');
   const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
+  return `${protocol}://${host}`
   const url = `${protocol}://${host}/api/getAllRooms`;
+}
 
-  const res = await fetch(url, { cache: 'no-store' });
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch data: ${res.status}`);
-  }
-
-  return res.json();
-};
-
-
-  export const relativePath = async () => {
-    const header = headers();
-    const result = (await header).get('host');
-    return `http://${result}/`;
-  }
   
   export async  function HeaderCard() {
 
-    // const fetchData = async () => {
-    //   const path = await relativePath();
-    //   const api = await fetch(`${path}/api/getAllRooms`);
-    //   const result = await api.json();
-    //   return result
-    // }
+    const fetchData = async () => {
+      const path = await relativePath();
+      const api = await fetch(`${path}/api/getAllRooms`);
+      const result = await api.json();
+      return result;
+    }
 
     const result = await fetchData();
-    console.log(result)
-    
+
     const skeleton = Array.from(['',''].map((_, id) => <LodgeCardSkeleton key={id}/>))
-    console.log(skeleton)
+  
     return (
       <>
-        {/* {
-            data ? 
-            (
-            <>
-                <LodgeCard 
-                    data={DATA[0]}
-                />
-                <LodgeCard 
-                    data={DATA[1]}
-                />
-            </>
-            ) : 
-            (
-                <> 
-                    {skeleton}
-                </>
-            )
-        } */}
-        
-        <LodgeCard 
-          data={DATA[0]}
-        />
-        <LodgeCard 
-          data={DATA[1]}
-        />
+      {
+        result ? (
+          <> 
+            <LodgeCard 
+              data={result[0]}
+            />
+            <LodgeCard 
+              data={result[1]}
+            />   
+          </>
+        ) : (
+          {skeleton}
+        )
+      }
       </>
     )
   }

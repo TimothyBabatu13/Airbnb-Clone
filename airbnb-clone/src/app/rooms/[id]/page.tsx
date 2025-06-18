@@ -8,15 +8,22 @@ import { Suspense } from "react";
 import Skeleton from "@/components/ui/skeleton";
 import { relativePath } from "@/components/HomeHeader";
 
+
 const Name = async ({ id } : {
     id: string
 }) => {
 
-    const path = await relativePath()
-    const data = await fetchDatas(`${path}/api/getRoom`, {
-        method: 'POST',
-        body: JSON.stringify(id)
-    })
+    const fetchData = async () => {
+        const path = await relativePath();
+        const api = await fetch(`${path}/api/getRoom`, {
+            method: 'POST',
+            body: JSON.stringify(id)
+        });
+        const result = await api.json();
+        return result;
+    }
+    
+    const data = await fetchData();
     const name = data.name
     return (
         <h1 className="text-[26px]">{name}</h1>
