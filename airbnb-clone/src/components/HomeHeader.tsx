@@ -47,7 +47,7 @@ const DATA = [
   export const relativePath = async () => {
     const header = headers();
     const result = (await header).get('host');
-    return `http:/${result}/`;
+    return `http://${result}/`;
   }
   
   export async  function HeaderCard() {
