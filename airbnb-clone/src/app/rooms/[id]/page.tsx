@@ -1,4 +1,3 @@
-'use client';
 import Header from "@/app/components/Header";
 import { AllPhotosButton, RoomHeaderButton } from "./components/RoomButtons";
 import ImageExhibition from "./components/ImageExhibition";
@@ -7,12 +6,14 @@ import ScrollOb from "./components/ScrollOb";
 import {  fetchDatas } from "@/lib/fetchData";
 import { Suspense } from "react";
 import Skeleton from "@/components/ui/skeleton";
+import { relativePath } from "@/components/HomeHeader";
 
 const Name = async ({ id } : {
     id: string
 }) => {
 
-    const data = await fetchDatas('https://localhost:3000/api/getRoom', {
+    const path = await relativePath()
+    const data = await fetchDatas(`${path}/api/getRoom`, {
         method: 'POST',
         body: JSON.stringify(id)
     })
