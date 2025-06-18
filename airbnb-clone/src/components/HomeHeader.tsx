@@ -55,7 +55,8 @@ const DATA = [
     const fetchData = async () => {
       const path = await relativePath();
       const api = await fetch(`${path}/api/getAllRooms`);
-      return api.json()
+      const result = await api.json();
+      return result
     }
 
     const result = await fetchData();
