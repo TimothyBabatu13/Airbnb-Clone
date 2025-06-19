@@ -14,6 +14,7 @@ export async function HeaderCard() {
 
   const fetchData = async () => {
     try {
+      console.log(path)
       const api = await fetch(`${path}/api/getAllRooms`, { cache: 'no-store' });
       const result = await api.json();
       return result
@@ -24,7 +25,9 @@ export async function HeaderCard() {
   }
   
   const result = await fetchData();
+  console.log(result, 'lets see if it goes through')
   const skeleton = Array.from(['', ''].map((_, id) => <LodgeCardSkeleton key={id} />));
+  console.log(result)
 
   return (
     <>
