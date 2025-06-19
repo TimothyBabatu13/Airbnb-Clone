@@ -5,7 +5,8 @@ import Infomation from "./components/Infomation";
 import ScrollOb from "./components/ScrollOb";
 import { Suspense } from "react";
 import Skeleton from "@/components/ui/skeleton";
-import { relativePath } from "@/components/HomeHeader";
+import { relativePath } from "@/lib/getRelativePath";
+// import { relativePath } from "@/components/HomeHeader";
 
 
 const Name = async ({ id } : {
