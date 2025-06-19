@@ -2,7 +2,8 @@ import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { AllPhotosButton } from "./RoomButtons"
 import { dataToSendType } from "@/app/api/getRoom/route"
-import { relativePath } from "@/components/HomeHeader"
+import { relativePath } from "@/lib/getRelativePath"
+// import { relativePath } from "@/components/HomeHeader"
 
 const SmallImage = ({ myId, src } : {
     myId: number,
