@@ -34,3 +34,41 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+//students signup
+//location
+//gmail
+//email - Firstname, Lastname, email, and password. Then verify. OTP expires in 2 minutes.
+
+//tutor sign up
+//location
+
+//tutor-onboarding: selct the type of exam they want to teach, and then upload their document for verification.
+//student-onboarding: 
+
+# Airbnb Clone 🏠
+
+Airbnb clone inspired by Airbnb web application built with **Next.js 15 App Router**, styled with **Tailwind CSS**, and deployed on **Vercel**.
+
+## 🌍 Live Demo
+
+👉 [View the site](https://airbnb-clone-five-hazel.vercel.app/)
+
+## 🚀 Features
+
+- 🌐 Landing page with dynamic listings
+- 🖼️ Image carousel for rooms
+- 🔍 Category-based filtering via URL parameters
+- 📱 Responsive design for mobile and desktop
+- 📦 API routes for rooms (`/api/getAllRooms`)
+- ⚡ Fast static + dynamic rendering with App Router
+
+## 🛠️ Technologies Used
+
+- **Next.js 15 (App Router)**
+- **React 18**
+- **Tailwind CSS**
+- **TypeScript**
+- **Vercel** for deployment
+
+## 📁 Project Structure (App Router)

@@ -48,10 +48,11 @@ import { headers } from "next/headers";
 
 export const relativePath = async () => {
   const host = (await headers()).get('host');
+
   const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
-  return `${protocol}://${host}`
-  // const url = `${protocol}://${host}/api/getAllRooms`;
-}
+  console.log(`${protocol}://${host}`)
+  return `${protocol}://${host}`;
+};
 
   
   export async  function HeaderCard() {
