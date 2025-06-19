@@ -15,7 +15,7 @@ export async function HeaderCard() {
   const fetchData = async () => {
     try {
       console.log(path)
-      const api = await fetch(`${path}/api/getAllRooms`, { cache: 'no-store' });
+      const api = await fetch(`https://airbnb-clone-bcjzqyql0-timothybabatu13s-projects.vercel.app/api/getAllRooms`, { cache: 'no-store' });
       const result = await api.json();
       return result
     } 
