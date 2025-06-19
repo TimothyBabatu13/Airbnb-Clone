@@ -21,7 +21,7 @@ const ActionButton = ({ children, action } : {
     return(
         <Button 
             onClick={action} 
-            className="w-full h-[50px] flex text-[11px] md:text-sm justify-start items-center bg-[#FFFFFF] text-[#222222] hover:bg-[#F7F7F7] border border-[#DDDDDD] rounded-xl"
+            className="w-full h-[50px] flex text-[11px] md:text-sm justify-center items-center bg-[#FFFFFF] text-[#222222] hover:bg-[#F7F7F7] border border-[#DDDDDD] rounded-xl"
         >
             {children}
         </Button>
@@ -69,35 +69,35 @@ const ActionButtons = ({ id } : {
         <div className="grid grid-cols-2 gap-2 md:gap-4">
             <ActionButton action={copyLink}>
                 <CopyIcon /> 
-                <span>Copy link</span>
+                <span className="hidden sm:inline">Copy link</span>
             </ActionButton>
             <ActionButton action={ShareEmail}>
                 <EmailIcon />
-                <span>Email</span> 
+                <span className="hidden sm:inline">Email</span> 
             </ActionButton>
             <ActionButton action={ShareThroughTextMessage} >
                 <MessageIcon />
-                <span>Messages</span>
+                <span className="hidden sm:inline">Messages</span>
             </ActionButton>
             <ActionButton action={ShareOnWhatsApp} >
                 <WhatsAppIcon />
-                <span>WhatsApp</span>
+                <span className="hidden sm:inline">WhatsApp</span>
             </ActionButton>
             <ActionButton action={shareThroughMessenger} >
                 <MessengerIcon />
-                <span>Messenger</span>
+                <span className="hidden sm:inline">Messenger</span>
             </ActionButton>
             <ActionButton action={ShareThroughFacebook} >
                 <FacebookIcon />
-                <span>Facebook</span>
+                <span className="hidden sm:inline">Facebook</span>
             </ActionButton>
             <ActionButton action={shareThroughTwitter} >
                 <TwitterIcon />
-                <span>Twitter</span>
+                <span className="hidden sm:inline">Twitter</span>
             </ActionButton>
             <ActionButton action={shareMoreOptions} >
                 <MoreOptionsIcon/>
-                <span>More options</span>
+                <span className="hidden sm:inline">More options</span>
             </ActionButton>
         </div>
     )
@@ -128,7 +128,7 @@ const ShareButton = ({ id, className, children, img, hostedBy } : {
                 {children ? children : <ShareIcon />}
         </button>
       </DialogTrigger>
-      <DialogContent className="w-[568px] max-w-[100%]">
+      <DialogContent className="w-[80%] md:w-[568px] max-w-[100%]">
         <DialogHeader className="mt-10 md:mb-6">
           <DialogTitle></DialogTitle>
           <DialogDescription className="text-[20px] md:text-[26px] font-medium">

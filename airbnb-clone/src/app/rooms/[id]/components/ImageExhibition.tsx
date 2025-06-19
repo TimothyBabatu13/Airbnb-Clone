@@ -1,4 +1,3 @@
-// 'use client'
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { AllPhotosButton } from "./RoomButtons"
@@ -29,7 +28,7 @@ const SmallImage = ({ myId, src } : {
 const ImageExhibition = async ({ id } : {
     id: string
 }) => {
-    
+    console.log(id)
     const fetchData = async () => {
         const path = await relativePath();
         const api = await fetch(`${path}/api/getRoom`, {
@@ -44,7 +43,8 @@ const ImageExhibition = async ({ id } : {
 
     const { images }= data;
     const [img1, ...imgs] = images
-    
+    const [img2, img3, img4, img5] = imgs
+    const arrOFImg = [img2, img3, img4, img5]
   return (
     <div id="imageExhibition" className="pt-6 flex gap-2 relative">
             <Image 
@@ -56,7 +56,7 @@ const ImageExhibition = async ({ id } : {
                 role="button"
             />
         <div className="grid grid-cols-2 gap-2 flex-1">
-            {Array.from(imgs).map((_, id) => (
+            {Array.from(arrOFImg).map((_, id) => (
                 <SmallImage src={_} myId={id} key={id}/>
             ))}
         </div>

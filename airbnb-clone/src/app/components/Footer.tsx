@@ -54,7 +54,112 @@ const lists = [
       // {heading: 'Santa Barbara', other: 'Condo rentals'},
       // {heading: 'Sonoma', other: 'House rentals'},
       // {heading: 'Le Serena', other: 'Beachfront rentals'},
-    ]
+    ],
+    
+  },
+  {
+    type: 'Arts & culture',
+    elements: [
+      // {heading: 'Canmore', other: 'Pet-friendly rentals'},
+      // {heading: 'Banalmadena', other: 'Beach house rentals'},
+      // {heading: 'Marbella', other: 'Apartment rentals'},
+      // {heading: 'Mijas', other: 'House rentals'},
+      // {heading: 'Prescott', other: 'Cabin rentals'},
+      // {heading: 'Scottsdale', other: 'House rentals'},
+      // {heading: 'Banalmadena', other: 'Beach house rentals'},
+      // {heading: 'Tucson', other: 'Apartment rentals'},
+      // {heading: 'Jaspar', other: 'Cabin rentals'},
+      // {heading: 'Mountain View', other: 'Family-friendly rentals'},
+      // {heading: 'Devonport', other: 'Cottage rentals'},
+      // {heading: 'Mallacoota', other: 'Beach house rentals'},
+      // {heading: 'Ibiza', other: 'Vacation rentals'},
+      // {heading: 'Anaheim', other: 'House rentals'},
+      // {heading: 'Monterey', other: 'Cottage rentals'},
+      // {heading: 'Paso Robles', other: 'Cottage rentals'},
+      // {heading: 'Banalmadena', other: 'Beach house rentals'},
+      // {heading: 'Santa Barbara', other: 'Condo rentals'},
+      // {heading: 'Sonoma', other: 'House rentals'},
+      // {heading: 'Le Serena', other: 'Beachfront rentals'},
+    ],
+    
+  },
+  {
+    type: 'Arts & culture',
+    elements: [
+      // {heading: 'Canmore', other: 'Pet-friendly rentals'},
+      // {heading: 'Banalmadena', other: 'Beach house rentals'},
+      // {heading: 'Marbella', other: 'Apartment rentals'},
+      // {heading: 'Mijas', other: 'House rentals'},
+      // {heading: 'Prescott', other: 'Cabin rentals'},
+      // {heading: 'Scottsdale', other: 'House rentals'},
+      // {heading: 'Banalmadena', other: 'Beach house rentals'},
+      // {heading: 'Tucson', other: 'Apartment rentals'},
+      // {heading: 'Jaspar', other: 'Cabin rentals'},
+      // {heading: 'Mountain View', other: 'Family-friendly rentals'},
+      // {heading: 'Devonport', other: 'Cottage rentals'},
+      // {heading: 'Mallacoota', other: 'Beach house rentals'},
+      // {heading: 'Ibiza', other: 'Vacation rentals'},
+      // {heading: 'Anaheim', other: 'House rentals'},
+      // {heading: 'Monterey', other: 'Cottage rentals'},
+      // {heading: 'Paso Robles', other: 'Cottage rentals'},
+      // {heading: 'Banalmadena', other: 'Beach house rentals'},
+      // {heading: 'Santa Barbara', other: 'Condo rentals'},
+      // {heading: 'Sonoma', other: 'House rentals'},
+      // {heading: 'Le Serena', other: 'Beachfront rentals'},
+    ],
+    
+  },
+  {
+    type: 'Arts & culture',
+    elements: [
+      // {heading: 'Canmore', other: 'Pet-friendly rentals'},
+      // {heading: 'Banalmadena', other: 'Beach house rentals'},
+      // {heading: 'Marbella', other: 'Apartment rentals'},
+      // {heading: 'Mijas', other: 'House rentals'},
+      // {heading: 'Prescott', other: 'Cabin rentals'},
+      // {heading: 'Scottsdale', other: 'House rentals'},
+      // {heading: 'Banalmadena', other: 'Beach house rentals'},
+      // {heading: 'Tucson', other: 'Apartment rentals'},
+      // {heading: 'Jaspar', other: 'Cabin rentals'},
+      // {heading: 'Mountain View', other: 'Family-friendly rentals'},
+      // {heading: 'Devonport', other: 'Cottage rentals'},
+      // {heading: 'Mallacoota', other: 'Beach house rentals'},
+      // {heading: 'Ibiza', other: 'Vacation rentals'},
+      // {heading: 'Anaheim', other: 'House rentals'},
+      // {heading: 'Monterey', other: 'Cottage rentals'},
+      // {heading: 'Paso Robles', other: 'Cottage rentals'},
+      // {heading: 'Banalmadena', other: 'Beach house rentals'},
+      // {heading: 'Santa Barbara', other: 'Condo rentals'},
+      // {heading: 'Sonoma', other: 'House rentals'},
+      // {heading: 'Le Serena', other: 'Beachfront rentals'},
+    ],
+    
+  },
+  {
+    type: 'Arts & culture',
+    elements: [
+      // {heading: 'Canmore', other: 'Pet-friendly rentals'},
+      // {heading: 'Banalmadena', other: 'Beach house rentals'},
+      // {heading: 'Marbella', other: 'Apartment rentals'},
+      // {heading: 'Mijas', other: 'House rentals'},
+      // {heading: 'Prescott', other: 'Cabin rentals'},
+      // {heading: 'Scottsdale', other: 'House rentals'},
+      // {heading: 'Banalmadena', other: 'Beach house rentals'},
+      // {heading: 'Tucson', other: 'Apartment rentals'},
+      // {heading: 'Jaspar', other: 'Cabin rentals'},
+      // {heading: 'Mountain View', other: 'Family-friendly rentals'},
+      // {heading: 'Devonport', other: 'Cottage rentals'},
+      // {heading: 'Mallacoota', other: 'Beach house rentals'},
+      // {heading: 'Ibiza', other: 'Vacation rentals'},
+      // {heading: 'Anaheim', other: 'House rentals'},
+      // {heading: 'Monterey', other: 'Cottage rentals'},
+      // {heading: 'Paso Robles', other: 'Cottage rentals'},
+      // {heading: 'Banalmadena', other: 'Beach house rentals'},
+      // {heading: 'Santa Barbara', other: 'Condo rentals'},
+      // {heading: 'Sonoma', other: 'House rentals'},
+      // {heading: 'Le Serena', other: 'Beachfront rentals'},
+    ],
+    
   }
 ]
 
@@ -85,10 +190,10 @@ const Footer = () => {
 
   return (
     <footer >
-        <div style={{background:'rgba(0,0,0,0)'}} className="py-12 border-b">
+        <div style={{background:'rgba(0,0,0,0)'}} className="py-12 border-b hidden lg:block">
           <h4 className="mb-2 text-[22px]">Inspiration for future getaways</h4>
           <div 
-            className="flex gap-0 border-b"
+            className="grid grid-cols-10 gap-0 border-b "
             style={{borderBottomColor: 'rgb(34, 34, 34)'}}
           >
             {
@@ -115,7 +220,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="py-12 grid grid-cols-3 border-b">
+        <div className="py-12 grid gap-y-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-b">
           {
             FooterLinks.map((link) => (
               <div key={crypto.randomUUID()}>

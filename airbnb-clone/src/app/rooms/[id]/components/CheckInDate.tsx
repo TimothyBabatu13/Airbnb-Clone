@@ -18,9 +18,9 @@ export function CalendarDemo({ ...props }) {
 const CheckInDate = () => {
  
     const newDate = new Date()
-    const [date, setDate] = useState<Date | undefined>(newDate)
+    
    
-    console.log(date)
+    // console.log(date)
     
     // const PreviousMonth = (date: Date) => {
     //     let month = date.getMonth();
@@ -34,23 +34,23 @@ const CheckInDate = () => {
     //     }
     //     return new Date(year, month, newDate.getDay())
     // }
-    const NextMonth = (date: Date) => {
-        let month = date.getMonth();
-        let year = date.getFullYear();
-        if(month === 11) {
-            month = 0
-            year += 1
-        }
-        else {
-            month += month
-        }
-        return new Date(year, month, newDate.getDay())
-    }
+    // const NextMonth = (date: Date) => {
+    //     let month = date.getMonth();
+    //     let year = date.getFullYear();
+    //     if(month === 11) {
+    //         month = 0
+    //         year += 1
+    //     }
+    //     else {
+    //         month += month
+    //     }
+    //     return new Date(year, month, newDate.getDay())
+    // }
     
-    const [dateChanged, setDateChanged] = useState(NextMonth(newDate));
+  
     // const [leftDate, setLeftDate] = useState<Date>(new Date('Sat May 03 2025 00:00:00 GMT+0100'))
 
-    console.log(dateChanged, setDateChanged)
+    // console.log(dateChanged, setDateChanged)
     const [newwDate, setNewDate] = useState<Date | undefined>(undefined)
     // const handleNextMonth = () => {
     //     setDateChanged(prev => NextMonth(prev))
@@ -58,7 +58,7 @@ const CheckInDate = () => {
     //         if(prev) return  NextMonth(prev)
     //     })
     // }
-    console.log(newwDate, setDate)
+    // console.log(newwDate, setDate)
     // const handlePreviousMonth = () => {
     //     setDateChanged(prev => PreviousMonth(prev))
     // }
@@ -74,7 +74,7 @@ const CheckInDate = () => {
                     const year = e.getFullYear();
                     e =  new Date(year, month, newDate.getDay())
                     setNewDate(e)
-                    console.log(e)
+                    // console.log(e)
                     return e
                 }}
             // fromDate={leftDate} 
